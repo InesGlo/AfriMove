@@ -3,76 +3,35 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-Object.defineProperty(exports, "ROOT_CONFIG_FILENAMES", {
+Object.defineProperty(exports, "ImportInjector", {
   enumerable: true,
   get: function () {
-    return _configuration.ROOT_CONFIG_FILENAMES;
+    return _importInjector.default;
   }
 });
-Object.defineProperty(exports, "findConfigUpwards", {
+exports.addDefault = addDefault;
+exports.addNamed = addNamed;
+exports.addNamespace = addNamespace;
+exports.addSideEffect = addSideEffect;
+Object.defineProperty(exports, "isModule", {
   enumerable: true,
   get: function () {
-    return _configuration.findConfigUpwards;
+    return _isModule.default;
   }
 });
-Object.defineProperty(exports, "findPackageData", {
-  enumerable: true,
-  get: function () {
-    return _package.findPackageData;
-  }
-});
-Object.defineProperty(exports, "findRelativeConfig", {
-  enumerable: true,
-  get: function () {
-    return _configuration.findRelativeConfig;
-  }
-});
-Object.defineProperty(exports, "findRootConfig", {
-  enumerable: true,
-  get: function () {
-    return _configuration.findRootConfig;
-  }
-});
-Object.defineProperty(exports, "loadConfig", {
-  enumerable: true,
-  get: function () {
-    return _configuration.loadConfig;
-  }
-});
-Object.defineProperty(exports, "loadPlugin", {
-  enumerable: true,
-  get: function () {
-    return _plugins.loadPlugin;
-  }
-});
-Object.defineProperty(exports, "loadPreset", {
-  enumerable: true,
-  get: function () {
-    return _plugins.loadPreset;
-  }
-});
-Object.defineProperty(exports, "resolvePlugin", {
-  enumerable: true,
-  get: function () {
-    return _plugins.resolvePlugin;
-  }
-});
-Object.defineProperty(exports, "resolvePreset", {
-  enumerable: true,
-  get: function () {
-    return _plugins.resolvePreset;
-  }
-});
-Object.defineProperty(exports, "resolveShowConfigPath", {
-  enumerable: true,
-  get: function () {
-    return _configuration.resolveShowConfigPath;
-  }
-});
-var _package = require("./package.js");
-var _configuration = require("./configuration.js");
-var _plugins = require("./plugins.js");
-({});
-0 && 0;
+var _importInjector = require("./import-injector.js");
+var _isModule = require("./is-module.js");
+function addDefault(path, importedSource, opts) {
+  return new _importInjector.default(path).addDefault(importedSource, opts);
+}
+function addNamed(path, name, importedSource, opts) {
+  return new _importInjector.default(path).addNamed(name, importedSource, opts);
+}
+function addNamespace(path, importedSource, opts) {
+  return new _importInjector.default(path).addNamespace(importedSource, opts);
+}
+function addSideEffect(path, importedSource, opts) {
+  return new _importInjector.default(path).addSideEffect(importedSource, opts);
+}
 
 //# sourceMappingURL=index.js.map
